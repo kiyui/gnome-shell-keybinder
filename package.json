@@ -1,0 +1,39 @@
+{
+  "name": "gnome-shell-keybinder",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel keybinder.js --out-file index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rliang/gnome-shell-keybinder.git"
+  },
+  "keywords": [
+    "gnome-shell",
+    "gnome",
+    "shell",
+    "extensions",
+    "extension"
+  ],
+  "author": "R. Liang <ricardoliang@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rliang/gnome-shell-keybinder/issues"
+  },
+  "homepage": "https://github.com/rliang/gnome-shell-keybinder#readme",
+  "babel": {
+    "plugins": [
+      "transform-es2015-modules-umd",
+      "transform-es2015-classes",
+      "transform-es2015-template-literals"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-plugin-transform-es2015-classes": "^6.9.0",
+    "babel-plugin-transform-es2015-modules-umd": "^6.8.0",
+    "babel-plugin-transform-es2015-template-literals": "^6.8.0"
+  }
+}
