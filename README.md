@@ -19,7 +19,7 @@ Webpack.
 ```javascript
 import Keybinder from 'gnome-shell-keybinder';
 
-const keybinder = new Keybinder();
+const keybinder = new Keybinder('my-extension');
 keybinder.add('hello-world', '<Super>j', () => print('Hello World!'));
 
 function enable() {
