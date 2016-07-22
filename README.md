@@ -8,13 +8,10 @@ file. When applying the keybinds, a schema is generated and compiled with the
 
 ## Building
 
-This module's source uses ES6 classes and modules, to build it into an ES5 UMD
-module run `npm run build`.
+This module uses ES6 classes, exports and template literals. To use in an
+extension, use a transpiler like Babel and a module bundler like Webpack.
 
 ## Usage
-
-To use in an extension, include the UMD module or use a module bundler like
-Webpack.
 
 ```javascript
 import Keybinder from 'gnome-shell-keybinder';
