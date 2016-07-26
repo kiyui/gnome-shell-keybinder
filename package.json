@@ -1,9 +1,11 @@
 {
   "name": "gnome-shell-keybinder",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "GNOME Shell extension utility for binding keys on-the-fly.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "babel keybinder.js --out-file index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rliang/gnome-shell-keybinder.git"
@@ -19,6 +21,19 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/rliang/gnome-shell-keybinder/issues"
+  },
+  "babel": {
+    "plugins": [
+      "transform-es2015-modules-umd",
+      "transform-es2015-classes",
+      "transform-es2015-template-literals"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-plugin-transform-es2015-classes": "^6.9.0",
+    "babel-plugin-transform-es2015-modules-umd": "^6.8.0",
+    "babel-plugin-transform-es2015-template-literals": "^6.8.0"
   },
   "homepage": "https://github.com/rliang/gnome-shell-keybinder#readme"
 }
