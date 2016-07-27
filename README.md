@@ -23,11 +23,11 @@ const keybinder = new Keybinder();
 keybinder.add('hello-world', '<Super>j', () => print('Hello World!'));
 
 function enable() {
-  keybinder.apply();
+  keybinder.enable();
 }
 
 function disable() {
-  keybinder.unapply();
+  keybinder.disable();
 }
 ```
 

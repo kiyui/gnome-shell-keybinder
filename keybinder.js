@@ -11,8 +11,8 @@ const Main = imports.ui.main;
  * the "glib-compile-schemas" executable, then loaded and applied.
  *
  * @see {@link add}
- * @see {@link apply}
- * @see {@link unapply}
+ * @see {@link enable}
+ * @see {@link disable}
  */
 export default class Keybinder {
 
@@ -87,12 +87,12 @@ export default class Keybinder {
   }
 
   /**
-   * Applies the keybindings.
+   * Enables the keybindings.
    *
    * @throws {Error} when writing to the XML gschema file, compiling it,
    * loading the settings, or applying a keybinding fails.
    */
-  apply() {
+  enable() {
     this.build();
     this.compile();
     const settings = this.load();
@@ -102,9 +102,9 @@ export default class Keybinder {
   }
 
   /**
-   * Unapplies the keybindings.
+   * Disables the keybindings.
    */
-  unapply() {
+  disable() {
     for (let {name} of this.bindings)
       Main.wm.removeKeybinding(name);
   }

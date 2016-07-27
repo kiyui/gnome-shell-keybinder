@@ -1,6 +1,6 @@
 {
   "name": "gnome-shell-keybinder",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "GNOME Shell extension utility for binding keys on-the-fly.",
   "main": "index.js",
   "scripts": {
