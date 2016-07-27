@@ -22,11 +22,11 @@ import Keybinder from 'gnome-shell-keybinder';
 const keybinder = new Keybinder();
 keybinder.add('hello-world', '<Super>j', () => print('Hello World!'));
 
-function enable() {
+export function enable() {
   keybinder.enable();
 }
 
-function disable() {
+export function disable() {
   keybinder.disable();
 }
 ```
