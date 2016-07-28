@@ -54,19 +54,20 @@
    * the "glib-compile-schemas" executable, then loaded and applied.
    *
    * @see {@link add}
-   * @see {@link apply}
-   * @see {@link unapply}
+   * @see {@link enable}
+   * @see {@link disable}
    */
 
   let Keybinder = function () {
 
     /**
-     * @param {String} id the ID of the keybinding set.
+     * @param {String} id the ID of the keybinding set, should be unique for each
+     * extension.
      */
     function Keybinder(id, directory = GLib.get_tmp_dir()) {
       _classCallCheck(this, Keybinder);
 
-      this.id = id;
+      this.id = 'org.gnome.shell.extensions.' + id;
       this.directory = directory;
       this.bindings = [];
     }
@@ -96,8 +97,9 @@
     }, {
       key: 'build',
       value: function build() {
+        const path = this.id.replace(/\./g, '/');
         const entries = this.bindings.map(b => this.render(b)).join('');
-        const schema = '<schema id="' + this.id + '" path="/">' + entries + '</schema>';
+        const schema = '<schema id="' + this.id + '" path="/' + path + '/">' + entries + '</schema>';
         const content = '<schemalist>' + schema + '</schemalist>';
         Gio.file_new_for_path(this.dir).get_child(this.id + '.gschema.xml').replace_contents(content, null, false, 0, null);
       }
@@ -115,8 +117,8 @@
         return new Gio.Settings({ settings_schema: src.lookup(this.id, true) });
       }
     }, {
-      key: 'apply',
-      value: function apply() {
+      key: 'enable',
+      value: function enable() {
         this.build();
         this.compile();
         const settings = this.load();
@@ -124,8 +126,8 @@
         for (let { name, handler } of this.bindings) Main.wm.addKeybinding(name, settings, 0, modes, handler);
       }
     }, {
-      key: 'unapply',
-      value: function unapply() {
+      key: 'disable',
+      value: function disable() {
         for (let { name } of this.bindings) Main.wm.removeKeybinding(name);
       }
     }]);

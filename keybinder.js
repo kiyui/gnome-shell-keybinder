@@ -17,10 +17,11 @@ const Main = imports.ui.main;
 export default class Keybinder {
 
   /**
-   * @param {String} id the ID of the keybinding set.
+   * @param {String} id the ID of the keybinding set, should be unique for each
+   * extension.
    */
   constructor(id, directory=GLib.get_tmp_dir()) {
-    this.id = id;
+    this.id = `org.gnome.shell.extensions.${id}`;
     this.directory = directory;
     this.bindings = [];
   }
@@ -57,8 +58,9 @@ export default class Keybinder {
    * @private
    */
   build() {
+    const path = this.id.replace(/\./g, '/');
     const entries = this.bindings.map(b => this.render(b)).join('');
-    const schema = `<schema id="${this.id}" path="/">${entries}</schema>`;
+    const schema = `<schema id="${this.id}" path="/${path}/">${entries}</schema>`;
     const content = `<schemalist>${schema}</schemalist>`;
     Gio.file_new_for_path(this.dir).get_child(`${this.id}.gschema.xml`)
       .replace_contents(content, null, false, 0, null);
