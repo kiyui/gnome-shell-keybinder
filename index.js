@@ -68,7 +68,7 @@
       _classCallCheck(this, Keybinder);
 
       this.id = 'org.gnome.shell.extensions.' + id;
-      this.directory = directory;
+      this.dir = directory;
       this.bindings = [];
     }
 

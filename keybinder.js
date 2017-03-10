@@ -22,7 +22,7 @@ export default class Keybinder {
    */
   constructor(id, directory=GLib.get_tmp_dir()) {
     this.id = `org.gnome.shell.extensions.${id}`;
-    this.directory = directory;
+    this.dir = directory;
     this.bindings = [];
   }
 
