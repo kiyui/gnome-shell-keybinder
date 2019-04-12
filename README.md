@@ -1,5 +1,7 @@
 # gnome-shell-keybinder
 
+Forked from https://github.com/rliang/gnome-shell-keybinder, which is no longer available.
+
 GNOME Shell extension utility for binding keys on-the-fly.
 
 GNOME Shell can only apply new configuration entries from a compiled schema
